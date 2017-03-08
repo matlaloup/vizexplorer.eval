@@ -1,29 +1,39 @@
 package com.vizexplorer.eval;
 
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+import static org.junit.Assert.assertTrue;
+
+import java.io.ByteArrayOutputStream;
+import java.io.PrintStream;
+
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * Unit test for simple App.
  */
-public class AppTest extends TestCase
+public class AppTest
 {
-  /**
-   * Create the test case
-   *
-   * @param testName name of the test case
-   */
-  public AppTest( String testName )
+  public ByteArrayOutputStream outContent = null;
+  @Before
+  public void setup()
   {
-    super( testName );
+    outContent = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(outContent));
   }
 
-  /**
-   * @return the suite of tests being tested
-   */
-  public static Test suite()
+  @After
+  public void teardown()
   {
-    return new TestSuite( AppTest.class );
+    System.setOut(null);
+  }
+
+  @Test
+  public void testMain()
+  {
+    String [] args = new String[]{"", "Biff", "Male", "19950110"};
+    App.main(args);
+
+    assertTrue(outContent.toString().startsWith("Person instance created: com.vizexplorer.eval.Person@"));
   }
 }

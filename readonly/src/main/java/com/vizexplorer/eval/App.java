@@ -27,6 +27,10 @@
  */
 package com.vizexplorer.eval;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  *
  */
@@ -34,6 +38,16 @@ public class App
 {
   public static void main( String[] args )
   {
-    System.out.println( "Hello World!" );
+    Date bd = null;
+    try
+    {
+      bd = new SimpleDateFormat("yyyyMMdd").parse(args[3]);
+      Person p = new Person(args[1], args[2], bd);
+      System.out.println( "Person instance created: "+p);
+    } catch (ParseException e)
+    {
+      e.printStackTrace();
+      System.exit(-1);
+    }
   }
 }
