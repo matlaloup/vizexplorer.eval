@@ -36,7 +36,7 @@ import java.util.Date;
  */
 public class App 
 {
-  public static void main( String[] args )
+  public static void main( String[] args ) throws ParseException
   {
     Date bd = null;
     try
@@ -47,7 +47,7 @@ public class App
     } catch (ParseException e)
     {
       e.printStackTrace();
-      System.exit(-1);
+      throw e;
     }
   }
 }

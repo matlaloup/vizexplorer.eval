@@ -4,9 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.text.ParseException;
 
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -14,26 +13,26 @@ import org.junit.Test;
  */
 public class AppTest
 {
-  public ByteArrayOutputStream outContent = null;
-  @Before
-  public void setup()
+  @Test(expected=ParseException.class)
+  public void testMain() throws ParseException
   {
-    outContent = new ByteArrayOutputStream();
-    System.setOut(new PrintStream(outContent));
-  }
+    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    try
+    {
+      System.setOut(new PrintStream(outContent));
 
-  @After
-  public void teardown()
-  {
-    System.setOut(null);
-  }
+      String [] args = new String[]{"", "Biff", "Male", "19950110"};
+      App.main(args);
 
-  @Test
-  public void testMain()
-  {
-    String [] args = new String[]{"", "Biff", "Male", "19950110"};
-    App.main(args);
+      assertTrue(outContent.toString().startsWith("Person instance created: com.vizexplorer.eval.Person@"));
 
-    assertTrue(outContent.toString().startsWith("Person instance created: com.vizexplorer.eval.Person@"));
+      args = new String[]{"", "", "", "bad date"};
+      App.main(args);
+
+    }
+    finally
+    {
+      System.setOut(null);
+    }
   }
 }

@@ -55,7 +55,9 @@ public class PersonTest
     Person p3 = new Person("Pat", "Other", new GregorianCalendar(1988, Calendar.FEBRUARY, 22).getTime());
     String id3 = p3.getId();
     
-    assertFalse(id1.isEmpty() || id2.isEmpty() || id3.isEmpty());
+    assertFalse(id1.isEmpty());
+    assertFalse(id2.isEmpty());
+    assertFalse(id3.isEmpty());
     assertFalse(id1.equals(id2));
     assertFalse(id2.equals(id3));
   }
