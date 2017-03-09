@@ -39,15 +39,8 @@ public class App
   public static void main( String[] args ) throws ParseException
   {
     Date bd = null;
-    try
-    {
-      bd = new SimpleDateFormat("yyyyMMdd").parse(args[3]);
-      Person p = new Person(args[1], args[2], bd);
-      System.out.println( "Person instance created: "+p);
-    } catch (ParseException e)
-    {
-      e.printStackTrace();
-      throw e;
-    }
+    bd = new SimpleDateFormat("yyyyMMdd").parse(args[3]);
+    Person p = new Person(args[1], args[2], bd);
+    System.out.println( "Person instance created: "+p);
   }
 }
