@@ -1,8 +1,14 @@
 # Java Developer Programming Challenge
-A set of Java coding tasks to assess Java programming and design skills.
+A set of Java coding tasks to assess Java programming and design skills. This document outlines how to build and use the application and what is required for the challenge.
 
-## Overview
-The following is a simple Java project which does nothing. The project has a number of known issues, some undocumented bugs and many other shortcomings. 
+## Build
+To build the application, clone and execute a standard maven build on the master branch. This will produce a jar file in the target folder.
+
+## Usage
+The application has a simple command line interface which is run using a java -jar command on the jar file produced in the build step above.
+
+## Overview of the Challenge
+The following is a simple Java project which does nothing. The project has a number of known issues, some undocumented bugs and many other non-functional issues with respect to robustness and usability which could be improved.
 
 ## Goals
 * The three open issues should be resolved in separate pull requests.
