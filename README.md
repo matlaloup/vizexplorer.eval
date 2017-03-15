@@ -2,9 +2,12 @@
 A set of Java coding tasks to assess Java programming and design skills. This document outlines how to build and use the application and what is required for the challenge.
 
 ## Overview of the Challenge
-The following is a simple Java project which does very little. The Person class can be instanciated and populated but is not properly displayed and immediately lost. The project has a number of known issues some bugs and many other non-functional issues with respect to robustness and usability which could be improved.
+The following is a simple Java project which does very little. The Person class can be instanciated and populated but is not properly displayed and immediately lost. The project has a number of known issues some bugs and many other non-functional issues with respect to robustness, maintenance and usability which could be improved. Suggest improvements or create issues that describe an enhancement and implement the solution.
 
-The primary task is to resolve the issues and submit the solutions in pull requests to be merged into master.
+The primary task is to resolve the issues and submit the solutions in pull requests to be merged into master branch on your forked copy of the repository.
+
+## Fork the Repo
+Create a fork into your own github account to do the work to keep it. When you are finished, please share the link with us so we can see how you solved the problem.
 
 ## Build
 To build the application, clone this repository and execute a standard maven build on the HEAD of the master branch. This will produce a jar file in the target folder.
