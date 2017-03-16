@@ -10,10 +10,12 @@ To build the application, execute a standard maven build on the HEAD of the mast
 ### Usage
 The application has a simple command line interface which is run using a java -jar command on the jar file produced in the build step above. It is completely undocumented, to discover how it is used you must examine the code in main().
 
-## Goals
-* The four (4) open issues should be resolved in separate commits or branches (or pull requests).
-* Each commit must be based on the same (initial) version of the code as at the HEAD of master, such that they can be accepted independently of one another.
-* Make improvements to the existing code not covered in any issue. There are areas of the code that may have bugs or could be improved by refactoring. Submit pull requests with descriptions that describe the problem and your solution.
+## Goals (Submit fixes to your forked copy of the repository)
+When finished you should have a fork of the github repo which contains 4 separate branches or pull request, each containing your solution to one of the issues.
+
+* Resolve all of the four (4) open issues. Fix each in a separate commit or branch (or pull request).
+* Each commit must be based on the same (initial) version of the code as at the HEAD of master, such that they can be evaluated independently of one another.
+* Optional: Make improvements to the existing code not covered in any issue. There are areas of the code that may have bugs or could be improved by refactoring. Submit pull requests with descriptions that describe the problem and your solution.
 
 ## Constraints
 * It is expected that the tasks can be completed within a couple of hours but the solution must be submitted within 24 hours after starting the challenge.
@@ -30,7 +32,7 @@ If at any point you are unclear make a judgement call and if necessary describe 
 ## Fork the GitHub Repository
 Create a fork into your own GitHub account to do the work (Sign up a new accout at GitHub.com if needed). When you are finished, please share the link with us so we can see how you solved the problem.
 
-## Commit Changes Corresponding to Each Issue
+## Commit Changes Corresponding to Each Issue To Your copy of the repo
 For each of the issues being resolved, modify code in the master branch and commit changes to a branch named after for that issue and push.
 
 Issues are found here:  https://github.com/VizExplorer/java.programming.challenge/issues
