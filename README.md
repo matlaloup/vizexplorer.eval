@@ -17,7 +17,7 @@ The application has a simple command line interface which is run using a java -j
 
 ## Constraints
 * It is expected that the tasks can be completed within a couple of hours but the solution must be submitted within 24 hours after starting the challenge.
-* Observe the coding convensions in the legacy code and maintain consistent coding style in any code you submit.
+* Observe the coding conventions in the legacy code and maintain consistent coding style in any code you submit.
 * It is possible to pass without completing every task, so committing in order of the milestones defined in the project is advisable.
 
 # Instructions
