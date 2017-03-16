@@ -33,6 +33,8 @@ Create a fork into your own GitHub account to do the work (Sign up a new accout 
 ## Commit Changes Corresponding to Each Issue
 For each of the issues being resolved, modify code in the master branch and commit changes to a branch named after for that issue and push.
 
+Issues are found here:  https://github.com/VizExplorer/java.programming.challenge/issues
+
 ## Forward us a link.
 Send us a link to your git repository containing all branches and/or pull requests for each of the issues.
 
