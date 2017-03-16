@@ -16,8 +16,9 @@ The application has a simple command line interface which is run using a java -j
 * Make improvements to the existing code not covered in any issue. There are areas of the code that may have bugs or could be improved by refactoring. Submit pull requests with descriptions that describe the problem and your solution.
 
 ## Constraints
-* It is expected that the tasks can be completed within a couple of hours but the Pull requests must be submitted within 24 hours.
+* It is expected that the tasks can be completed within a couple of hours but the solutoin must be submitted within 24 hours after starting the challenge.
 * Observe the coding convensions in the legacy code and maintain consistent coding style in any code you submit.
+* It is possible to pass without completing every task, so commit in order of the milestones defined in the project.
 
 # Instructions
 These are basic step by step instructions to get you started. If at any point you are unclear make a judgement call, it is not expected that this challenge should take longer than a couple of hours total so simple solutions are expected as long as they meet the requirements of the issues.
@@ -31,4 +32,5 @@ Create a fork into your own github account to do the work (Sign up a new accout 
 For each of the issues being resolved, modify code in the master branch and commit changes to a branch named after for that issue and push.
 
 ## Forward us a link.
-Send us a link to your git repository containing all branches and/or pull requests for each of the issues. 
+Send us a link to your git repository containing all branches and/or pull requests for each of the issues.
+
