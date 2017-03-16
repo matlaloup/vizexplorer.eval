@@ -36,5 +36,5 @@ For each of the issues being resolved, modify code in the master branch and comm
 Issues are found here:  https://github.com/VizExplorer/java.programming.challenge/issues
 
 ## Forward us a link.
-Send us a link to your git repository containing all branches and/or pull requests for each of the issues.
+Send us a link to your git repository containing all branches and/or pull requests for each of the solutions.
 
