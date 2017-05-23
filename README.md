@@ -2,7 +2,7 @@
 A set of Java coding tasks to assess Java programming and design skills. This document outlines how to build and use the application and what is required for the challenge.
 
 ## Overview of the Challenge
-The following is a simple Java project which does very little. The Person class can be instanciated and populated but is not properly displayed and immediately lost.
+The following is a simple Java project which does very little. The Person class can be instantiated and populated but is not properly displayed and immediately lost.
 
 ## Build
 To build the application, execute a standard maven build on the HEAD of the master branch. This will produce a jar file in the target folder.
