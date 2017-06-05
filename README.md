@@ -29,9 +29,6 @@ The project has a number of known issues some bugs and many other non-functional
 
 If at any point you are unclear make a judgement call and if necessary describe it in comments or a wiki page in your copy of the repository on GitHub. It is not expected that this challenge should take longer than a couple of hours total so simple solutions are expected as long as they meet the requirements of the issues.
 
-## Fork the GitHub Repository
-Create a fork into your own GitHub account to do the work (Sign up a new accout at GitHub.com if needed). When you are finished, please share the link with us so we can see how you solved the problem.
-
 ## Commit Changes Corresponding to Each Issue To Your copy of the repo
 For each of the issues being resolved, modify code in the master branch and commit changes to a branch named after for that issue and push.
 
