@@ -1,0 +1,11 @@
+package com.vizexplorer.eval;
+
+import org.junit.runner.RunWith;
+import org.junit.runners.Suite;
+
+@RunWith(Suite.class)
+@Suite.SuiteClasses({AppTest.class, PersonTest.class})
+
+public class TestSuite
+{
+}
