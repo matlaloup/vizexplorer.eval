@@ -86,6 +86,7 @@ public class Person
   @Override
   public Person clone()
   {
-    return new Person(name, gender, (Date) birthDate.clone());
+    Date clonedDate = birthDate == null ? null : (Date) birthDate.clone();
+    return new Person(name, gender, clonedDate);
   }
 }

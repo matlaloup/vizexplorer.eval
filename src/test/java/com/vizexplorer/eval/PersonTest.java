@@ -29,6 +29,7 @@ package com.vizexplorer.eval;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -87,6 +88,16 @@ public class PersonTest
     p2.getBirthDate().setDate(31);
 
     assertEquals(1, p1.getBirthDate().getDate());
+  }
+
+  @Test
+  public void testCloneWithNullDate()
+  {
+    Person p1 = new Person("Canuck", "Male", null);
+
+    Person p2 = p1.clone();
+
+    assertNull(p2.getBirthDate());
   }
 
   @Test
