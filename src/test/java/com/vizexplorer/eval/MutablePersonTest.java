@@ -27,20 +27,69 @@
  */
 package com.vizexplorer.eval;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
+
+import org.junit.Test;
 
 /**
+ * @author travis
  *
  */
-public class App
+public class MutablePersonTest
 {
-  public static void main(String[] args) throws ParseException
+
+  @Test
+  public void testIdUniqueness()
   {
-    Date bd = null;
-    bd = new SimpleDateFormat("yyyyMMdd").parse(args[3]);
-    MutablePerson p = new MutablePerson(args[1], args[2], bd);
-    System.out.println("Person instance created: " + p);
+    MutablePerson p1 = new MutablePerson("Bart", "Male", new GregorianCalendar(1992, Calendar.MAY, 9).getTime());
+    String id1 = p1.getId();
+
+    MutablePerson p2 = new MutablePerson("Lisa", "Female", new GregorianCalendar(1976, Calendar.JUNE, 11).getTime());
+    String id2 = p2.getId();
+
+    MutablePerson p3 = new MutablePerson("Pat", "Other", new GregorianCalendar(1988, Calendar.FEBRUARY, 22).getTime());
+    String id3 = p3.getId();
+
+    assertFalse(id1.isEmpty());
+    assertFalse(id2.isEmpty());
+    assertFalse(id3.isEmpty());
+    assertFalse(id1.equals(id2));
+    assertFalse(id2.equals(id3));
+  }
+
+  @Test
+  public void testClone()
+  {
+    MutablePerson p1 = new MutablePerson("Canuck", "Male", new GregorianCalendar(1967, Calendar.JULY, 1).getTime());
+    String id1 = p1.getId();
+
+    MutablePerson p2 = p1.clone();
+
+    assertFalse(id1.equals(p2.getId()));
+    assertFalse(p1.equals(p2));
+    assertEquals(p1.getName(), p2.getName());
+    assertEquals(p1.getGender(), p2.getGender());
+    assertEquals(p1.getBirthDate(), p2.getBirthDate());
+  }
+
+  @Test
+  public void testUpdate()
+  {
+    MutablePerson p1 = new MutablePerson("Update", "Male", null);
+    assertEquals(null, p1.getBirthDate());
+    Date bd = new GregorianCalendar(1967, Calendar.JULY, 1).getTime();
+    p1.setBirthDate(bd);
+    assertEquals(bd, p1.getBirthDate());
+
+    p1.setName("newname");
+    assertEquals("newname", p1.getName());
+
+    p1.setGender("Female");
+    assertEquals("Female", p1.getGender());
   }
 }

@@ -28,64 +28,27 @@
 package com.vizexplorer.eval;
 
 import java.util.Date;
-import java.util.UUID;
 
 /**
+ * This interface describes a person object.
  *
  */
-public class Person
+public interface Person
 {
-  private String id;
-  private String name;
-  private String gender;
-  private Date birthDate;
+  String getId();
+  String getName();
+  String getGender();
+  Date getBirthDate();
 
   /**
+   * Creates an immutable (read-only) Person object.
    * 
    * @param name
    * @param gender
    * @param birthDate
    */
-  public Person(String name, String gender, Date birthDate)
+  public static Person newPerson(String name, String gender, Date birthDate)
   {
-    id = (UUID.randomUUID().toString());
-    setName(name);
-    setGender(gender);
-    setBirthDate(birthDate);
-  }
-
-  public String getId()
-  {
-    return id;
-  }
-  public String getName()
-  {
-    return name;
-  }
-  public void setName(String name)
-  {
-    this.name = name;
-  }
-  public String getGender()
-  {
-    return gender;
-  }
-  public void setGender(String gender)
-  {
-    this.gender = gender;
-  }
-  public Date getBirthDate()
-  {
-    return birthDate;
-  }
-  public void setBirthDate(Date birthDate)
-  {
-    this.birthDate = birthDate;
-  }
-
-  @Override
-  public Person clone()
-  {
-    return new Person(name, gender, birthDate);
+    return new ImmutablePerson(name, gender, birthDate);
   }
 }

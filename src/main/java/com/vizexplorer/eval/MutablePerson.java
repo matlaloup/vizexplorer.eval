@@ -27,69 +27,70 @@
  */
 package com.vizexplorer.eval;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-
-import java.util.Calendar;
 import java.util.Date;
-import java.util.GregorianCalendar;
-
-import org.junit.Test;
+import java.util.UUID;
 
 /**
- * @author travis
- *
+ * Mutable implementation of {@link Person}.<br/>
+ * This class is package protected and must remain it to prevent third parties
+ * applications to create mutable Person objects.
  */
-public class PersonTest
+class MutablePerson implements Person
 {
+  private String id;
+  private String name;
+  private String gender;
+  private Date birthDate;
 
-  @Test
-  public void testIdUniqueness()
+  /**
+   * @param name
+   * @param gender
+   * @param birthDate
+   */
+  public MutablePerson(String name, String gender, Date birthDate)
   {
-    Person p1 = new Person("Bart", "Male", new GregorianCalendar(1992, Calendar.MAY, 9).getTime());
-    String id1 = p1.getId();
-
-    Person p2 = new Person("Lisa", "Female", new GregorianCalendar(1976, Calendar.JUNE, 11).getTime());
-    String id2 = p2.getId();
-
-    Person p3 = new Person("Pat", "Other", new GregorianCalendar(1988, Calendar.FEBRUARY, 22).getTime());
-    String id3 = p3.getId();
-
-    assertFalse(id1.isEmpty());
-    assertFalse(id2.isEmpty());
-    assertFalse(id3.isEmpty());
-    assertFalse(id1.equals(id2));
-    assertFalse(id2.equals(id3));
+    id = (UUID.randomUUID().toString());
+    setName(name);
+    setGender(gender);
+    setBirthDate(birthDate);
   }
 
-  @Test
-  public void testClone()
+  @Override
+  public String getId()
   {
-    Person p1 = new Person("Canuck", "Male", new GregorianCalendar(1967, Calendar.JULY, 1).getTime());
-    String id1 = p1.getId();
-
-    Person p2 = p1.clone();
-
-    assertFalse(id1.equals(p2.getId()));
-    assertFalse(p1.equals(p2));
-    assertEquals(p1.getName(), p2.getName());
-    assertEquals(p1.getGender(), p2.getGender());
-    assertEquals(p1.getBirthDate(), p2.getBirthDate());
+    return id;
+  }
+  @Override
+  public String getName()
+  {
+    return name;
+  }
+  public void setName(String name)
+  {
+    this.name = name;
+  }
+  @Override
+  public String getGender()
+  {
+    return gender;
+  }
+  public void setGender(String gender)
+  {
+    this.gender = gender;
+  }
+  @Override
+  public Date getBirthDate()
+  {
+    return birthDate;
+  }
+  public void setBirthDate(Date birthDate)
+  {
+    this.birthDate = birthDate;
   }
 
-  @Test
-  public void testUpdate()
+  @Override
+  public MutablePerson clone()
   {
-    Person p1 = new Person("Update", "Male", null);
-    assertEquals(null, p1.getBirthDate());
-    Date bd = new GregorianCalendar(1967, Calendar.JULY, 1).getTime();
-    p1.setBirthDate(bd);
-    assertEquals(bd, p1.getBirthDate());
-
-    p1.setName("newname");
-    assertEquals("newname", p1.getName());
-
-    p1.setGender("Female");
-    assertEquals("Female", p1.getGender());
+    return new MutablePerson(name, gender, birthDate);
   }
 }
