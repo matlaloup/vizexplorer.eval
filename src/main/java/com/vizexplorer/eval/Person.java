@@ -31,13 +31,13 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- *
+ * Business object that represents a person
  */
 public class Person
 {
   private String id;
   private String name;
-  private String gender;
+  private Gender gender;
   private Date birthDate;
 
   /**
@@ -46,7 +46,7 @@ public class Person
    * @param gender
    * @param birthDate
    */
-  public Person(String name, String gender, Date birthDate)
+  public Person(String name, Gender gender, Date birthDate)
   {
     id = (UUID.randomUUID().toString());
     setName(name);
@@ -66,11 +66,11 @@ public class Person
   {
     this.name = name;
   }
-  public String getGender()
+  public Gender getGender()
   {
     return gender;
   }
-  public void setGender(String gender)
+  public void setGender(Gender gender)
   {
     this.gender = gender;
   }

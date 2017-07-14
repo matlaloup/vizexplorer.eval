@@ -28,19 +28,44 @@
 package com.vizexplorer.eval;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 /**
+ * Enum that defines the gender of a person
  *
  */
-public class App
+public enum Gender
 {
-  public static void main(String[] args) throws ParseException
+  MALE("Male"), FEMALE("Female"), OTHER("Other");
+
+  private String label;
+
+  private Gender(String label)
   {
-    Date bd = new SimpleDateFormat("yyyyMMdd").parse(args[3]);
-    Gender gender = Gender.parse(args[2]);
-    Person p = new Person(args[1], gender, bd);
-    System.out.println("Person instance created: " + p);
+    this.label = label;
   }
+
+  public String getLabel()
+  {
+    return label;
+  }
+
+  /**
+   * @param label
+   * @return the gender that matches the label
+   * @throws ParseException
+   *           if the gender can not be parsed.
+   */
+  public static Gender parse(String label) throws ParseException
+  {
+    for (Gender gender : values())
+    {
+      // lets be a bit permissive
+      if (gender.label.equalsIgnoreCase(label))
+      {
+        return gender;
+      }
+    }
+    throw new ParseException("Invalid gender : " + label, 0);
+  }
+
 }

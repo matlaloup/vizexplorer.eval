@@ -35,4 +35,22 @@ public class AppTest
       System.setOut(null);
     }
   }
+
+  @Test(expected = ParseException.class)
+  public void testInvalidGender() throws ParseException
+  {
+    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    try
+    {
+      System.setOut(new PrintStream(outContent));
+
+      String[] args = new String[]{"", "Biff", "Animal", "19950110"};
+      App.main(args);
+
+    }
+    finally
+    {
+      System.setOut(null);
+    }
+  }
 }

@@ -27,6 +27,9 @@
  */
 package com.vizexplorer.eval;
 
+import static com.vizexplorer.eval.Gender.FEMALE;
+import static com.vizexplorer.eval.Gender.MALE;
+import static com.vizexplorer.eval.Gender.OTHER;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
@@ -46,13 +49,13 @@ public class PersonTest
   @Test
   public void testIdUniqueness()
   {
-    Person p1 = new Person("Bart", "Male", new GregorianCalendar(1992, Calendar.MAY, 9).getTime());
+    Person p1 = new Person("Bart", MALE, new GregorianCalendar(1992, Calendar.MAY, 9).getTime());
     String id1 = p1.getId();
 
-    Person p2 = new Person("Lisa", "Female", new GregorianCalendar(1976, Calendar.JUNE, 11).getTime());
+    Person p2 = new Person("Lisa", FEMALE, new GregorianCalendar(1976, Calendar.JUNE, 11).getTime());
     String id2 = p2.getId();
 
-    Person p3 = new Person("Pat", "Other", new GregorianCalendar(1988, Calendar.FEBRUARY, 22).getTime());
+    Person p3 = new Person("Pat", OTHER, new GregorianCalendar(1988, Calendar.FEBRUARY, 22).getTime());
     String id3 = p3.getId();
 
     assertFalse(id1.isEmpty());
@@ -65,7 +68,7 @@ public class PersonTest
   @Test
   public void testClone()
   {
-    Person p1 = new Person("Canuck", "Male", new GregorianCalendar(1967, Calendar.JULY, 1).getTime());
+    Person p1 = new Person("Canuck", MALE, new GregorianCalendar(1967, Calendar.JULY, 1).getTime());
     String id1 = p1.getId();
 
     Person p2 = p1.clone();
@@ -80,7 +83,7 @@ public class PersonTest
   @Test
   public void testUpdate()
   {
-    Person p1 = new Person("Update", "Male", null);
+    Person p1 = new Person("Update", MALE, null);
     assertEquals(null, p1.getBirthDate());
     Date bd = new GregorianCalendar(1967, Calendar.JULY, 1).getTime();
     p1.setBirthDate(bd);
@@ -89,7 +92,7 @@ public class PersonTest
     p1.setName("newname");
     assertEquals("newname", p1.getName());
 
-    p1.setGender("Female");
-    assertEquals("Female", p1.getGender());
+    p1.setGender(FEMALE);
+    assertEquals(FEMALE, p1.getGender());
   }
 }
