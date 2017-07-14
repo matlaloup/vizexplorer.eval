@@ -45,8 +45,10 @@ public final class ImmutablePerson implements Person
   @Override
   public ImmutablePerson clone()
   {
+    // we must clone the date to avoid reproducing issue #3
+    Date clonedDate = getBirthDate() == null ? null : (Date) getBirthDate().clone();
     // we must not reuse the same delegate.
-    return new ImmutablePerson(getName(), getGender(), getBirthDate());
+    return new ImmutablePerson(getName(), getGender(), clonedDate);
   }
 
 }
