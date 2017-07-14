@@ -13,7 +13,7 @@ import org.junit.Test;
  */
 public class AppTest
 {
-  @Test(expected=ParseException.class)
+  @Test(expected = ParseException.class)
   public void testMain() throws ParseException
   {
     ByteArrayOutputStream outContent = new ByteArrayOutputStream();
@@ -21,7 +21,7 @@ public class AppTest
     {
       System.setOut(new PrintStream(outContent));
 
-      String [] args = new String[]{"", "Biff", "Male", "19950110"};
+      String[] args = new String[]{"", "Biff", "Male", "19950110"};
       App.main(args);
 
       assertTrue(outContent.toString().startsWith("Person instance created: com.vizexplorer.eval.Person@"));

@@ -83,6 +83,7 @@ public class Person
     this.birthDate = birthDate;
   }
 
+  @Override
   public Person clone()
   {
     return new Person(name, gender, birthDate);

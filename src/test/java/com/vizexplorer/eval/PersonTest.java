@@ -42,19 +42,19 @@ import org.junit.Test;
  */
 public class PersonTest
 {
-  
+
   @Test
   public void testIdUniqueness()
   {
     Person p1 = new Person("Bart", "Male", new GregorianCalendar(1992, Calendar.MAY, 9).getTime());
     String id1 = p1.getId();
-    
+
     Person p2 = new Person("Lisa", "Female", new GregorianCalendar(1976, Calendar.JUNE, 11).getTime());
     String id2 = p2.getId();
-    
+
     Person p3 = new Person("Pat", "Other", new GregorianCalendar(1988, Calendar.FEBRUARY, 22).getTime());
     String id3 = p3.getId();
-    
+
     assertFalse(id1.isEmpty());
     assertFalse(id2.isEmpty());
     assertFalse(id3.isEmpty());
@@ -67,7 +67,7 @@ public class PersonTest
   {
     Person p1 = new Person("Canuck", "Male", new GregorianCalendar(1967, Calendar.JULY, 1).getTime());
     String id1 = p1.getId();
-    
+
     Person p2 = p1.clone();
 
     assertFalse(id1.equals(p2.getId()));
