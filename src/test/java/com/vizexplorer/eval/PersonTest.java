@@ -78,6 +78,18 @@ public class PersonTest
   }
 
   @Test
+  public void testCloneDoesNotAffectOriginal()
+  {
+    Person p1 = new Person("Canuck", "Male", new GregorianCalendar(1967, Calendar.JULY, 1).getTime());
+
+    Person p2 = p1.clone();
+
+    p2.getBirthDate().setDate(31);
+
+    assertEquals(1, p1.getBirthDate().getDate());
+  }
+
+  @Test
   public void testUpdate()
   {
     Person p1 = new Person("Update", "Male", null);
