@@ -13,3 +13,6 @@
 *.ear
 
 /target/
+
+#database (should not be in the project)
+database

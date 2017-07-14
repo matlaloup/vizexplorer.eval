@@ -4,8 +4,11 @@ import static org.junit.Assert.assertTrue;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.security.InvalidParameterException;
 import java.text.ParseException;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
@@ -13,26 +16,44 @@ import org.junit.Test;
  */
 public class AppTest
 {
+
+  private ByteArrayOutputStream outContent;
+
   @Test(expected = ParseException.class)
-  public void testMain() throws ParseException
+  public void testCreateWithInvalidDate() throws ParseException, DatabaseException
   {
-    ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-    try
-    {
-      System.setOut(new PrintStream(outContent));
+    String[] args = new String[]{"create", "", "", "bad date"};
+    App.main(args);
+  }
 
-      String[] args = new String[]{"", "Biff", "Male", "19950110"};
-      App.main(args);
+  @Test
+  public void testValidCreation() throws ParseException, DatabaseException
+  {
+    String[] args = new String[]{"create", "Biff", "Male", "19950110"};
+    App.main(args);
 
-      assertTrue(outContent.toString().startsWith("Person instance created: com.vizexplorer.eval.Person@"));
+    assertTrue(outContent.toString().startsWith("Person instance created: Person [id="));
+  }
 
-      args = new String[]{"", "", "", "bad date"};
-      App.main(args);
+  @Test(expected = InvalidParameterException.class)
+  public void testInvalidValidCommand() throws ParseException, DatabaseException
+  {
+    String[] args = new String[]{"duplicate", "Biff", "Male", "19950110"};
+    App.main(args);
 
-    }
-    finally
-    {
-      System.setOut(null);
-    }
+    assertTrue(outContent.toString().startsWith("Person instance created: com.vizexplorer.eval.Person@"));
+  }
+
+  @Before
+  public void before()
+  {
+    outContent = new ByteArrayOutputStream();
+    System.setOut(new PrintStream(outContent));
+  }
+
+  @After
+  public void after()
+  {
+    System.setOut(null);
   }
 }
